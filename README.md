@@ -5,6 +5,10 @@ Python selenium automation using Behave BDD Framework
 # Behave : 
 Behave is a Python BDD (Behavior Driven Development) framework which makes it easy to write tests in a natural language style.behave uses tests written in a natural language style, backed up by Python code.
 
+It has features(.feature) files and steps(.py) files.
+➜ Feature file : A feature file is a natural language format describing a feature of an application or scenario of expected outcomes.
+➜ Steps file : Steps file is a normal python file where execution code as written in it based on steps in the feature file.
+
 # Contents 
   1. Introduction Behave,BDD 
   2. Installation on Mac
@@ -14,8 +18,8 @@ Behave is a Python BDD (Behavior Driven Development) framework which makes it ea
       ➜ Install Ghirkin plugin on pycharm
       ➜ Install Behave
   3. Folder Stucture
-  4. About Feature File
-  5. Gherkin language - Gherkin Keywords
+  4. Gherkin language - Gherkin Keywords
+  5. About Feature File
   6. About Step definition File
   7. Hooks / Fixtures - Environment.py - tear down functions in Behave
   8. Writing First Test and running feature files
@@ -94,7 +98,124 @@ Behave is a Python BDD (Behavior Driven Development) framework which makes it ea
       Click on Pycharm setting and go to Plugins tab and search "ghirkin"  
       ➜ Ghirkin plug-in and install and apply.
 
-# 3. Folder Stucture   
+# 3. Folder Stucture 
+
+  Behave works with three types of files:
+    1. feature files written by your Business Analyst / Sponsor / whoever with your behaviour   scenarios in it.
+    2. “steps” directory with Python step implementations for the scenarios.
+    3. optionally some environmental controls (code to run before and after steps, scenarios, features or the whole shooting match).
       
+    Behave Folder Structure:
+    --------------------
+    ➜Project /project directory 
+	  +-- features
+			    +-- steps
+							step1.py
+							step2.py
+              ....
+			  feature1.feature
+				feature2.feature
+        .....
+			  environment.py
+		+--➜ reports
+    External libraries
+
+     // or simply
+    +--features/
+    |   +--steps/       # -- Steps directory
+    |   |    +-- *.py   # -- Step implementation or use step-library python files.
+    |   +-- *.feature   # -- Feature files.    
+
+
+# 4. Gherkin language - Gherkin Keywords
+
+  Behave features are written using a language called "Gherkin" (with some modifications).
+  Gherkin language is basically the normal English language with some basic rules. It has introduced a few keywords with which the tests     should be written. And these Gherkin language tests are mapped with code . 
+  
+  Keywords of the Gherkin language:
+      
+      Feature
+      Background
+      Scenario
+      Scenario outline
+      Given
+      When
+      Then
+      And
+            
+  Feature keyword — Provides a high level description of the software feature.
+  Scenario keyword — indicates the title of the test case.
+  Given keyword — describes a set of pre-conditions for the Selenium test automation scenario
+  When keyword — Describes the scenario steps 
+  Then keyword — Describes the Scenario outcome 
+  And — Used to provide additional steps. It is used along with other keywords such as Given, When, and Then 
+
+  Example of a BDD test written using Gherkin language : Login functionality
     
-      
+    Feature: Login to web application
+    
+        Scenario: Login with valid username and password
+          Given user on chrome web login page 
+          Then user enter"username" and "password"
+          And user click on login button
+          Then user successfully logged into application     
+
+# 5. About Feature File
+
+  Features are composed of scenarios. They may optionally have a description, a background and a set of tags. 
+  Feature files in Gherkin are plain simple text files that have a .
+  feature extension and can be pivotal in business driven development.A feature file can contain one or more scenarios.
+  Relevant Tags (@ Tag) are used to differentiate between different Scenarios. 
+  In its simplest form a feature looks like:
+        
+    Feature: feature name
+      Scenario: some scenario
+      Given some condition
+       Then some result is expected.
+    
+
+# 6. About Step definition File
+  Step functions are the implementation of the feature file steps. 
+  They are implemented in Python modules present in your "steps" directory. 
+  All the Python files (.py) are loaded before executing your features because .py files are used to search the step implementations.
+
+    Step implementation example :
+
+    from behave import given, when, then
+    
+    @given("user on chrome web login page")
+    def methodOne(context):
+    print("chrome web login page")
+    
+    @when(' user enter"username" and "password" ')
+    def methodTwo(context):
+    print("enter username and pswrd ")
+    
+    @when("user click on login button")
+    def methodThree(context):
+    print("login button")
+    
+    @then("user successfully logged into application")
+    def methodFive(context):
+    print(" successfully logged in ")
+  
+  # 7. Hooks / Fixtures - Environment.py - tear down functions in Behave
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
