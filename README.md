@@ -21,19 +21,19 @@ It has features(.feature) files and steps(.py) files.
   4. Gherkin language - Gherkin Keywords
   5. About Feature File
   6. About Step definition File
-  7. Hooks / Fixtures - Environment.py - tear down functions in Behave
-  8. Writing First Test and running feature files
-  9. Passing Parameters to Steps
-  10. Scenario 
-  11. Scenario outline
-  12. Adding Multiple scenarios with multiple parameters
-  13. Background
-  14. context -variable offenly to share data between steps
-  15. Tags in Behave
-  16. Allure Reports - Generate Reports in Behave
-  17. How to Generate Custom Report 
+  7. Writing First Test and running feature files
+  8. Passing Parameters to Steps
+  9. Scenario 
+  10. Scenario outline
+  11. Adding Multiple scenarios with multiple parameters
+  12. Background
+  13. context -variable offenly to share data between steps
+  14. Tags in Behave
+  15. Allure Reports - Generate Reports in Behave
+  16. How to Generate Custom Report
+  17. Hooks / Fixtures - Environment.py - tear down functions in Behave
   18. End - thank you
-
+      
 # 1. Introduction to Behave,BDD
   ➜ Behave is BDD framework, is a Cucumber variant for Python.. BDD is an agile software development technique 
   that encourages collaboration between developers, QA and non-technical teams in software project.
@@ -199,7 +199,10 @@ It has features(.feature) files and steps(.py) files.
     def methodFive(context):
     print(" successfully logged in ")
   
-  # 7. Hooks / Fixtures - Environment.py - tear down functions in Behave
+  # 7. Writing First Test and running feature files
+
+  
+         
     
     
 
